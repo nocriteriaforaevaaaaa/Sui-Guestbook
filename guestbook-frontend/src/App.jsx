@@ -46,10 +46,10 @@ function PostMessage({ onPost }) {
       borderRadius: '1rem',
       boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
       marginBottom: '2rem',
-      maxWidth: '500px',
+      maxWidth: '750px',
       width: '100%'
     }}>
-      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}> Post a Message</h2>
+      <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}> Message Box</h2>
       <textarea
         placeholder="Please leave a message..."
         value={message}
@@ -67,7 +67,7 @@ function PostMessage({ onPost }) {
       <button
         onClick={handlePost}
         style={{
-          background: 'linear-gradient(to right, #6a11cb, #2575fc)',
+          background: 'linear-gradient(to right,rgb(60, 184, 229),rgb(214, 152, 70))',
           color: 'white',
           padding: '0.75rem 1.5rem',
           border: 'none',
