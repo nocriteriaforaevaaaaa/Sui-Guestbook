@@ -1,7 +1,7 @@
 module sui_guestbook::sui_guestbook {
 
-   
     use sui::event;
+   
     public struct EventNewMessage has copy, drop {
         sender: address,
     }
@@ -22,7 +22,7 @@ module sui_guestbook::sui_guestbook {
             id: object::new(ctx),
             messages: vector::empty<Message>(),
         };
-        transfer::transfer(book, tx_context::sender(ctx));
+        transfer::share_object(book); 
     }
 
     public entry fun post_message(book: &mut Guestbook, content: vector<u8>, ctx: &mut TxContext) {

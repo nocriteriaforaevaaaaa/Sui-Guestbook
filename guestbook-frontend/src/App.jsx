@@ -5,10 +5,10 @@ import { TransactionBlock } from '@mysten/sui.js/transactions';
 
 const client = new SuiClient({ url: getFullnodeUrl('testnet') });
 
-const PACKAGE_ID = '0xd35d2b3725ec198e590c596d8b17c86fac48c2fa96df05478730d5727296d9e6';
+const PACKAGE_ID = '0xe6f7e53d39f02324061c858742ed388d0f459307c27ee40142fec6bba627adc7';
 const MODULE = 'guestbook';
 const FUNC = 'post_message';
-const GUESTBOOK_ID = '0x4dfda3225ab9a849316157e1300de6b258317ee1df1cd0e73e53a680ae8384fe';
+const GUESTBOOK_ID = '0x5a29045fd15880be4650bff6dd7380421c82d1c7458bed912d82cddaf95c47be';
 
 function PostMessage({ onPost }) {
   const [message, setMessage] = useState('');
@@ -21,10 +21,10 @@ function PostMessage({ onPost }) {
     try {
       const tx = new TransactionBlock();
       tx.moveCall({
-        target: `${PACKAGE_ID}::${MODULE}::${FUNC}`,
+        target: `${PACKAGE_ID}::sui_guestbook::post_message`,
         arguments: [
           tx.object(GUESTBOOK_ID),
-          tx.pure(Array.from(new TextEncoder().encode(message))),
+          tx.pure(message),
         ],
       });
 
